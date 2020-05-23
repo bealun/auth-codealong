@@ -72,6 +72,8 @@ app.get('/secrets', (req, res) => {
   res.json({ secret: "This is a super secret message!" })
 })
 
+
+// Login endpoint
 app.post('/sessions', async (req, res) => {
   const user = await User.findOne({ email: req.body.email })
   if (user && bcrypt.compareSync(req.body.password, user.password)) {
